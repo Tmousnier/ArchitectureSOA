@@ -1,6 +1,9 @@
 package org.tmousnier.user.dto;
 
-public record UserInput (String email, String password) {
+public record UserInput (
+        String email,
+        String password
+) {
     public UserInput {
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("Email cannot be null or blank");
