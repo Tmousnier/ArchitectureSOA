@@ -1,7 +1,7 @@
-package controller;
+package org.example.catalogue.controller;
 
-import model.Article;
-import service.CatalogueService;
+import org.example.catalogue.model.Article;
+import org.example.catalogue.service.CatalogueService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

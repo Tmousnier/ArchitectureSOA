@@ -1,5 +1,5 @@
 // model/Article.java
-package model;
+package org.example.catalogue.model;
 
 import jakarta.persistence.*;
 

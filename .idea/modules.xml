@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ArchitectureSOA.iml" filepath="$PROJECT_DIR$/.idea/ArchitectureSOA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Catalogue.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Catalogue.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/User.main.iml" filepath="$PROJECT_DIR$/.idea/modules/User.main.iml" />
     </modules>
   </component>
 </project>

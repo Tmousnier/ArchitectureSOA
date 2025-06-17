@@ -1,6 +1,6 @@
-package repository;
+package org.example.catalogue.repository;
 
-import model.Article;
+import org.example.catalogue.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {

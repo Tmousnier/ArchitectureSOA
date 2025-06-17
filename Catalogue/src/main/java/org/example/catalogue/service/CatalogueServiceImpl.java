@@ -1,8 +1,7 @@
-package service;
+package org.example.catalogue.service;
 
-import model.Article;
-import repository.ArticleRepository;
-import service.CatalogueService;
+import org.example.catalogue.model.Article;
+import org.example.catalogue.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

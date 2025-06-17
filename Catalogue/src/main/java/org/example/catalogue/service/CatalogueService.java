@@ -1,7 +1,7 @@
-package service;
+package org.example.catalogue.service;
 
 import java.util.List;
-import model.Article;
+import org.example.catalogue.model.Article;
 
 public interface CatalogueService {
     List<Article> getAllArticles();
