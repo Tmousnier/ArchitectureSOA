@@ -1,10 +1,16 @@
-// model/Article.java
 package org.example.catalogue.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
-public class Article {
+@Table(name = "catalogue")
+public class Catalogue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

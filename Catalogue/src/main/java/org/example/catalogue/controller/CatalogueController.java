@@ -1,13 +1,15 @@
 package org.example.catalogue.controller;
 
-import org.example.catalogue.model.Article;
+import jakarta.validation.Valid;
+import org.example.catalogue.dto.CatalogueInput;
+import org.example.catalogue.model.Catalogue;
 import org.example.catalogue.service.CatalogueService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/catalogue")
+@RequestMapping("/api/v1/catalogue")
 public class CatalogueController {
 
     private final CatalogueService catalogueService;
@@ -17,18 +19,28 @@ public class CatalogueController {
     }
 
     @GetMapping
-    public List<Article> getAllArticles() {
-        return catalogueService.getAllArticles();
+    public List<Catalogue> getCatalogue() {
+        return catalogueService.getCatalogues();
+    }
+
+    @GetMapping("/{id}")
+    public Catalogue getCatalogueById(@PathVariable Long id) {
+        return catalogueService.getCatalogueById(id);
     }
 
     @PostMapping
-    public Article createArticle(@RequestBody Article article) {
-        return catalogueService.saveArticle(article);
+    public Catalogue createUser(@RequestBody CatalogueInput catalogueInput) {
+        return catalogueService.createCatalogue(catalogueInput);
     }
 
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong";
+    @PutMapping("/{id}")
+    public Catalogue updateUser(@PathVariable Long id, @Valid @RequestBody CatalogueInput catalogueInput) {
+        return catalogueService.updateCatalogue(id, catalogueInput);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        catalogueService.deleteCatalogue(id);
     }
 
 }
