@@ -1,5 +1,6 @@
 package org.tmousnier.user.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.tmousnier.user.dao.User;
@@ -20,22 +21,22 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getCategories() {
+    public List<User> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/{id}")
-    public User getCategoriesById(@PathVariable String id) {
+    public User getUserById(@PathVariable String id) {
         return userService.getUserById(id);
     }
 
     @PostMapping
-    public User createCategory(@RequestBody UserInput userInput) {
+    public User createUser(@Valid @RequestBody UserInput userInput) {
         return userService.createUser(userInput);
     }
 
     @PutMapping("/{id}")
-    public User updateCategory(@PathVariable String id, @RequestBody UserInput userInput) {
+    public User updateUser(@PathVariable String id, @Valid @RequestBody UserInput userInput) {
         return userService.updateUser(id, userInput);
     }
 

@@ -17,6 +17,7 @@ public class User {
     @Id
     @UuidGenerator
     private String uuid;
+
     private String email;
     private String password;
 }
