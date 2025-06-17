@@ -12,8 +12,8 @@ import org.hibernate.annotations.UuidGenerator;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "utilisateur")
+public class Utilisateur {
     @Id
     @UuidGenerator
     private String uuid;

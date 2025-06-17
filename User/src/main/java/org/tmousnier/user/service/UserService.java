@@ -3,7 +3,7 @@ package org.tmousnier.user.service;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.tmousnier.user.dao.User;
+import org.tmousnier.user.dao.Utilisateur;
 import org.tmousnier.user.dto.UserInput;
 import org.tmousnier.user.repository.UserRepository;
 
@@ -20,30 +20,30 @@ public class UserService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    public List<User> getUsers() {
+    public List<Utilisateur> getUsers() {
         return userRepository.findAll();
     }
 
-    public User getUserById(String id) {
+    public Utilisateur getUserById(String id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Utilisateur non trouvé avec l'id : " + id));
     }
 
-    public User createUser(UserInput userInput) {
+    public Utilisateur createUser(UserInput userInput) {
         if (userRepository.findByEmail(userInput.email()).isPresent()) {
             throw new IllegalArgumentException("Un utilisateur avec cet email existe déjà.");
         }
 
         String hashedPassword = passwordEncoder.encode(userInput.password());
-        User newUser = User.builder()
+        Utilisateur newUser = Utilisateur.builder()
                 .email(userInput.email())
                 .password(hashedPassword)
                 .build();
         return userRepository.save(newUser);
     }
 
-    public User updateUser(String id, UserInput userInput) {
-        User user = userRepository.findById(id)
+    public Utilisateur updateUser(String id, UserInput userInput) {
+        Utilisateur user = userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Utilisateur non trouvé avec l'id : " + id));
 
         user.setEmail(userInput.email());
@@ -53,7 +53,7 @@ public class UserService {
     }
 
     public void deleteUser(String id) {
-        User user = userRepository.findById(id)
+        Utilisateur user = userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Utilisateur non trouvé avec l'id : " + id));
         userRepository.delete(user);
     }
